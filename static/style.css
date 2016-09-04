@@ -1,0 +1,9 @@
+@import 'https://fonts.googleapis.com/css?family=Libre+Baskerville';
+
+.jumbotron {
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  background-color: #015C7A;
+  color: #E4EBED;
+
+}
