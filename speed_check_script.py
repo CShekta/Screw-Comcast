@@ -1,7 +1,11 @@
+import datetime
 import re
 import subprocess
+import time
+import tzlocal
 
-def getCurrentSpeeds:
+def getCurrentSpeeds():
+    try:
 	p = subprocess.Popen(['speedtest-cli'], stdout=subprocess.PIPE,
 		                                stderr=subprocess.PIPE);
 
@@ -24,4 +28,21 @@ def getCurrentSpeeds:
 	#print "upload match: ", uploadMatch
 
 	#print downloadSpeed, " down, ", uploadSpeed, " up"
+        return (downloadSpeed, uploadSpeed)
+    except:
+	return ( 0/0, 0/0 )
 
+
+#print time.tzname
+#print time.timezone
+#print time.localtime()
+#print time.time()
+#print time.strftime("%a, %d %b %Y %H:%M:%S %z", time.localtime())
+#print time.strftime('%Y-%m-%dT%H:%M:%S%z')
+#print datetime.isoformat()
+
+t = time.time()
+dt = datetime.datetime.fromtimestamp(t, tzlocal.get_localzone())
+timestamp = dt.isoformat()
+
+print timestamp
